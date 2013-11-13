@@ -268,6 +268,10 @@ span.icon-caret-down {
     color: @grey;
     padding: 1em;
     opacity: 1;
+    height: 1.2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     transition: opacity 0.1s;
     a {
       color: @green;
@@ -279,10 +283,32 @@ span.icon-caret-down {
     .make-type {
       text-transform: capitalize;
     }
+    .tag-container {
+      display: none;
+      .tag {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        width: 100%;
+        overflow: hidden;
+        &:hover {
+          text-overflow: clip;
+          white-space: normal;
+        }
+      }
+    }
     .title {
       font-weight: 700;
       color: @grey;
       margin-bottom: 0.5em;
+    }
+    &:hover {
+      height: auto;
+      text-overflow: clip;
+      white-space: normal;
+      .tag-container {
+        display: block;
+      }
     }
   }
   /*********************************************************
