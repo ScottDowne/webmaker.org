@@ -289,11 +289,12 @@ span.icon-caret-down {
         text-overflow: ellipsis;
         white-space: nowrap;
         display: inline-block;
-        width: 100%;
+        max-width: 100%;
         overflow: hidden;
         &:hover {
           text-overflow: clip;
           white-space: normal;
+          word-break: break-all;
         }
       }
     }
