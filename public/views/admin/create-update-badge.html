@@ -8,10 +8,15 @@
       <input name="name" ng-model="badge.name" class="form-control" required>
       <p class="help-block">e.g. Webmaker Mentor</p>
     </div>
+    <div class="form-group" ng-class="hasError(badgeForm.slug)" ng-if="view != 'update'">
+      <label>Slug</label>
+      <input name="slug" ng-model="badge.slug" class="form-control" ng-change="resetForm()">
+      <span class="help-block" ng-show="badgeForm.slug.$invalid">This slug is taken already.</span>
+    </div>
     <div class="form-group" ng-if="badge.slug">
       <label>URL</label>
       <p><a ng-if="badge.slug" class="btn btn-default btn-block btn-left" href="/badges/{{badge.slug}}">webmaker.org/badges/{{badge.slug}}</a></p>
-      <p class="help-block">Unfortunately, due to limitations in badgekit-api, you are currently unable to change this.</p>
+      <p class="help-block">Unfortunately, you are currently unable to update this once published.</p>
     </div>
     <div class="form-group" ng-class="hasError(badgeForm.imageUrl)">
       <label>Image URL</label>

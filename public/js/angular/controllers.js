@@ -474,6 +474,10 @@ angular
         return badge;
       }
 
+      $scope.resetForm = function () {
+        $scope.badgeForm.slug.$setValidity("unique", true);
+      };
+
       $scope.submit = function (isValid, badge) {
         $scope.submitAttempt = true;
         if (!isValid) {
@@ -489,6 +493,9 @@ angular
             window.location = '/' + config.lang + '/badges/' + data.slug;
           })
           .error(function (err) {
+            if (err === 'badge with that `slug` already exists') {
+              $scope.badgeForm.slug.$setValidity("unique", false);
+            }
             console.log(err);
           });
       };
