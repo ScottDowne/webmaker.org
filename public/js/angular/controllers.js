@@ -377,7 +377,9 @@ angular
       $scope.reverse = false;
       $scope.predicate = 'created';
       $scope.hasPermissions = function (badge) {
-        return window.badgesPermissionsModel({
+        var badgesPermissionsModel = module.exports;
+
+        return badgesPermissionsModel({
           badge: badge,
           user: $rootScope._user,
           action: 'applications'
