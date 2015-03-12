@@ -106,7 +106,8 @@ var webmakerAuth = new WebmakerAuth({
   loginHost: env.get('LOGIN_EMAIL_URL'),
   secretKey: env.get('SESSION_SECRET'),
   forceSSL: env.get('FORCE_SSL'),
-  domain: env.get('COOKIE_DOMAIN')
+  domain: env.get('COOKIE_DOMAIN'),
+  testMode: env.get('AUTH_EMULATION')
 });
 
 var routes = require('./routes');
